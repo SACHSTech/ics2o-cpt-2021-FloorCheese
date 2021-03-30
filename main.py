@@ -17,10 +17,10 @@ pygame.display.set_caption("Virus Fighter")
 run = True
 clock = pygame.time.Clock()
 
-box_1x = 5  #all numbers are placeholders
-box_1y = 20
-box_2x = 20
-box_2y = 20
+box_startgame_x = 5  #all numbers are placeholders
+box_startgame_y = 20
+box_help_x = 20
+box_help_y = 20
 box_width = 10
 box_height = 5
 
@@ -45,11 +45,19 @@ screen.blit(title, [100, 100])
 
 pygame.display.update()
 
+if (box_startgame_x <= mouse_click_position[0] and mouse_click_position[0] <= box_startgame_x + box_width) and (box_startgame_y <= mouse_click_position[1] and mouse_click_position[1] <= box_startgame_y + box_height):
+      button_startgame = True
+else:
+      button_startgame = False
 
+if (box_help_x <= mouse_click_position[0] and mouse_click_position[0] <= box_help_x + box_width) and (box_help_y <= mouse_click_position[1] and mouse_click_position[1] <= box_help_y + box_height):
+      button_help = True
+else:
+      button_help = False
 
-pygame.draw.rect(screen, GREY, [box_1x, box_1y, box_width, box_height])
+pygame.draw.rect(screen, GREY, [box_startgame_x, box_startgame_y, box_width, box_height])
 
-pygame.draw.rect(screen, GREY, [box_2x, box_2y, box_width, box_height])
+pygame.draw.rect(screen, GREY, [box_help_x, box_help_y, box_width, box_height])
 
 
 clock.tick(60)
