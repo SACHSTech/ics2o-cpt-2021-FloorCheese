@@ -9,7 +9,7 @@ RED = (255, 0, 0)
 BLUE = (0, 0, 255)
 GREY = (220, 220, 220)
 
-size = (800, 600)
+size = (450, 450)
 screen = pygame.display.set_mode(size)
 
 pygame.display.set_caption("Virus Fighter")
@@ -17,12 +17,12 @@ pygame.display.set_caption("Virus Fighter")
 run = True
 clock = pygame.time.Clock()
 
-box_1x = 50  #all numbers are placeholders
-box_1y = 200
-box_2x = 200
-box_2y = 200
-box_width = 100
-box_height = 50
+box_1x = 5  #all numbers are placeholders
+box_1y = 20
+box_2x = 20
+box_2y = 20
+box_width = 10
+box_height = 5
 
 button_startgame = False
 button_help = False
@@ -38,11 +38,10 @@ while run:
       mouse_click_position = pygame.mouse.get_pos()
 
 screen.fill(WHITE)
-pygame.display.update()
 
 font = pygame.font.SysFont('Calibri', 25, True, False)
 title = font.render("Virus Fighter", True, BLACK)
-screen.blit(title, [500, 200])
+screen.blit(title, [100, 100])
 
 pygame.display.update()
 
