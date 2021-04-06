@@ -1,0 +1,31 @@
+
+if button_startgame and not title_screen:
+    screen.fill(WHITE)
+  elif button_help and not title_screen:
+    screen.fill(WHITE)
+    control_text_w = font.render("Press 'W' to move up", True, BLACK)
+    screen.blit(control_text_w, [135, 60])
+    control_text_a = font.render("Press 'a' to move left", True, BLACK)
+    screen.blit(control_text_a, [135, 60])
+    control_text_s = font.render("Press 's' to move down", True, BLACK)
+    screen.blit(control_text_s, [135, 60])
+    control_text_d = font.render("Press 'd' to move right", True, BLACK)
+    screen.blit(control_text_d, [135, 60])   
+  elif button_powers and not title_screen:
+    screen.fill(WHITE)   
+  else:
+    text_title = font.render("Virus Fighter", True, BLACK)
+    screen.blit(text_title, [135, 60])
+    pygame.draw.rect(screen, GREY, [box_startgame_x, box_startgame_y, box_width, box_height])
+    pygame.draw.rect(screen, GREY, [box_help_x, box_help_y, box_width, box_height])
+    pygame.draw.rect(screen, GREY, [box_powers_x, box_powers_y, box_width, box_height])
+
+    text_startgame = font.render("Start Game", True, BLACK)
+    screen.blit(text_startgame, [160, 145])
+
+    text_help = font.render("Controls", True, BLACK)
+    screen.blit(text_help, [190, 235])
+
+    text_powers  = font.render("Powers", True, BLACK)
+    screen.blit(text_powers, [200, 325])
+  

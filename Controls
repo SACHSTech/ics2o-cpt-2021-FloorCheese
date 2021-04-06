@@ -1,0 +1,32 @@
+import pygame
+pygame.init()
+
+BLACK = (0, 0, 0)
+WHITE = (255, 255, 255)
+GREEN = (0, 255, 0)
+RED = (255, 0, 0)
+BLUE = (0, 0, 255)
+GREY = (220, 220, 220)
+
+size = (550, 550)
+screen = pygame.display.set_mode(size)
+
+pygame.display.set_caption("Virus Fighter Controls Menu")
+
+run = True
+clock = pygame.time.Clock()
+font = pygame.font.SysFont('Calibri', 45, True, False)
+
+while run:
+  for event in pygame.event.get():
+    if event.type == pygame.QUIT:
+        run = False
+
+    control_text_w = font.render("Press 'W' to move up", True, BLACK)
+    screen.blit(control_text_w, [135, 60])
+    control_text_a = font.render("Press 'a' to move left", True, BLACK)
+    screen.blit(control_text_a, [135, 60])
+    control_text_s = font.render("Press 's' to move down", True, BLACK)
+    screen.blit(control_text_s, [135, 60])
+    control_text_d = font.render("Press 'd' to move right", True, BLACK)
+    screen.blit(control_text_d, [135, 60])  
