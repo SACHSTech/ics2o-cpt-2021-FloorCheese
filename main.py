@@ -17,8 +17,7 @@ box_x = 50
 box_y = 50
 box_width = 10
 box_height = 10
-speed = 0.1
-
+speed = 1
 clock = pygame.time.Clock()
 
 run = True
@@ -29,13 +28,13 @@ while run:
 
   keys = pygame.key.get_pressed()
 
-  if keys[pygame.K_LEFT]:
+  if keys[pygame.K_LEFT] and box_x > speed:
     box_x -= speed
-  if keys[pygame.K_RIGHT]:
+  if keys[pygame.K_RIGHT] and box_x < 550 - box_width - speed:
     box_x += speed
-  if keys[pygame.K_UP]:
+  if keys[pygame.K_UP] and box_y > speed:
     box_y -= speed
-  if keys[pygame.K_DOWN]:
+  if keys[pygame.K_DOWN] and box_y < 550 - box_height - speed:
     box_y += speed
 
   win.fill((255,255,255))
