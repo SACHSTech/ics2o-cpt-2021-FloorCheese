@@ -78,7 +78,7 @@ while run:
 
   if button_startgame and not title_screen:
     screen.fill(WHITE)
-    screen.blit(background, (0,0))
+    screen.blit(game_surface, (0,0))
     
     
 
