@@ -11,7 +11,6 @@ GREY = (220, 220, 220)
 
 size = (550, 550)
 screen = pygame.display.set_mode(size)
-game_surface = pygame.surface.Surface(size)
 
 pygame.display.set_caption("Virus Fighter")
 
@@ -34,6 +33,7 @@ button_help = False
 button_back = False
 button_powers = False
 title_screen = True
+begin_game = False
 mouse_click_position = [0,0]
 
 font = pygame.font.SysFont('Calibri', 45, True, False)
@@ -78,10 +78,9 @@ while run:
 
   if button_startgame and not title_screen:
     screen.fill(WHITE)
-    screen.blit(game_surface, (0,0))
+    begin_game = True
+    while begin_game:
     
-    
-
   elif button_help and not title_screen:
     screen.fill(WHITE)
     control_text_w = font.render("Press 'W' to move up", True, BLACK)
@@ -93,12 +92,10 @@ while run:
     control_text_d = font.render("Press 'd' to move right", True, BLACK)
     screen.blit(control_text_d, [135, 60])
     
-    
-    
   elif button_powers and not title_screen:
     screen.fill(WHITE)
     
-    
+  
   else:
     text_title = font.render("Virus Fighter", True, BLACK)
   screen.blit(text_title, [135, 60])
