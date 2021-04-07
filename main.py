@@ -13,8 +13,8 @@ win = pygame.display.set_mode(size)
 
 pygame.display.set_caption("Virus Fighter")
 
-box_x = 50
-box_y = 50
+box_x = 225
+box_y = 500
 box_width = 10
 box_height = 10
 speed = 1
@@ -36,8 +36,10 @@ while run:
     box_y -= speed
   if keys[pygame.K_DOWN] and box_y < 550 - box_height - speed:
     box_y += speed
-
-  win.fill((255,255,255))
+  win.fill((255,255,255))  
+  if keys[pygame.K_SPACE]:
+    pygame.draw.circle(win, (0,255,0), (box_x, box_y), 5, 2)
+  win.fill((255,255,255)) 
   pygame.draw.rect(win, (0, 0, 0), (box_x, box_y, box_width, box_height))
   pygame.display.update()
 
