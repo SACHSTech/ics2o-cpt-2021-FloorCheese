@@ -1,5 +1,4 @@
 import pygame
-import random as ra
 
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
@@ -26,6 +25,8 @@ bounce_2_x = 520
 bounce_2_y = 0
 movespeed = 0.2
 
+player_1_score = 0
+player_2_score = 0
 clock = pygame.time.Clock()
 
 run = True
@@ -45,24 +46,30 @@ while run:
   if keys[pygame.K_DOWN] and bounce_2_y < screen_height - bounce_height - movespeed:
     bounce_2_y += movespeed
 
-#add code for hitbox on bouncies
-  if box_x + box_width 
-    box_speed_x = box_speed_x + ra.uniform(0.01, 0.05)
+  if box_x == bounce_1_x:
     box_speed_x = box_speed_x * -1
- 
+
+  if box_x == bounce_2_x:
+    box_speed_x = box_speed_x * -1
+
   if box_y + box_height >= screen_height or box_y <= 0:
-    box_speed_y = box_speed_y + ra.uniform(0.01, 0.05)
     box_speed_y = box_speed_y * -1
 
   box_x += box_speed_x
   box_y += box_speed_y
 
-  screen.fill(WHITE)
+  if box_x + box_width >= screen_width:
+    player_1_score = player_1_score + 1
 
-  pygame.draw.rect(screen, (0, 0, 0), (bounce_1_x, bounce_1_y, bounce_width, bounce_height))
-  pygame.draw.rect(screen, (0, 0, 0), (bounce_2_x, bounce_2_y, bounce_width, bounce_height))
+  if box_x <= 0:
+    player_2_score = player_2_score + 1
+    
+  screen.fill(BLACK)
 
-  pygame.draw.rect(screen, BLACK, [box_x, box_y, box_width, box_height])
+  pygame.draw.rect(screen, (WHITE), (bounce_1_x, bounce_1_y, bounce_width, bounce_height))
+  pygame.draw.rect(screen, (WHITE), (bounce_2_x, bounce_2_y, bounce_width, bounce_height))
+
+  pygame.draw.rect(screen, WHITE, [box_x, box_y, box_width, box_height])
 
   pygame.display.update()
 
