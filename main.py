@@ -73,7 +73,7 @@ while run:
 
   pygame.draw.rect(screen, (WHITE), (bounce_1_x, bounce_1_y, bounce_width, bounce_height))
   pygame.draw.rect(screen, (WHITE), (bounce_2_x, bounce_2_y, bounce_width, bounce_height))
-  pygame.draw.rect(screen, WHITE, [box_x, box_y, box_width, box_height])
+  pygame.draw.circle(screen, WHITE, (box_x, box_y), box_width, box_height)
 
   if player_1_score > 0:
     points_1 = font.render("Player 1 wins!", True, WHITE)
