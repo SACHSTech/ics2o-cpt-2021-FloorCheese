@@ -1,5 +1,5 @@
 import pygame
-
+pygame.init()
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 
@@ -14,8 +14,8 @@ box_x = 250
 box_y = 140
 box_width = 10
 box_height = 10
-box_speed_x = 0.05
-box_speed_y = 0.05
+box_speed_x = 0.1
+box_speed_y = 0.1
 
 bounce_height = 55
 bounce_width = 10
@@ -32,8 +32,9 @@ full_box = pygame.Rect(box_x, box_y, box_width, box_height)
 player_1_score = 0
 player_2_score = 0
 clock = pygame.time.Clock()
-
+font = pygame.font.SysFont('Calibri', 45, True, False)
 run = True
+
 while run:
   for event in pygame.event.get():
     if event.type == pygame.QUIT:
@@ -67,14 +68,21 @@ while run:
 
   if box_x <= 0:
     player_2_score = player_2_score + 1
-    
+  
   screen.fill(BLACK)
 
   pygame.draw.rect(screen, (WHITE), (bounce_1_x, bounce_1_y, bounce_width, bounce_height))
   pygame.draw.rect(screen, (WHITE), (bounce_2_x, bounce_2_y, bounce_width, bounce_height))
-
   pygame.draw.rect(screen, WHITE, [box_x, box_y, box_width, box_height])
 
+  if player_1_score > 0:
+    points_1 = font.render("Player 1 wins!", True, WHITE)
+    screen.blit(points_1, [140,10])
+  elif player_2_score > 0:
+    points_2 = font.render("Player 2 wins", True, WHITE)
+    screen.blit(points_2, [140,10])
+  else:
+    pass
   pygame.display.update()
 
 clock.tick(60)
