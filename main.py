@@ -29,6 +29,8 @@ block_1 = pygame.Rect(bounce_width, bounce_height, bounce_1_x, bounce_1_y)
 block_2 = pygame.Rect(bounce_width, bounce_height, bounce_2_x, bounce_2_y)
 full_box = pygame.Rect(box_x, box_y, box_width, box_height)
 
+timer_variable = 10
+
 player_1_score = 0
 player_2_score = 0
 clock = pygame.time.Clock()
@@ -75,14 +77,21 @@ while run:
   pygame.draw.rect(screen, (WHITE), (bounce_2_x, bounce_2_y, bounce_width, bounce_height))
   pygame.draw.circle(screen, WHITE, (box_x, box_y), box_width, box_height)
 
+  while timer_variable > 0:
+    timer_variable = timer_variable - 1
+    pygame.time.delay(1000)
+
+  if timer_variable == 0:
+    box_speed_x = box_speed_x + 0.1
+    box_speed_y = box_speed_y + 0.1
+    timer_variable = timer_variable + 10
+
   if player_1_score > 0:
     points_1 = font.render("Player 1 wins!", True, WHITE)
     screen.blit(points_1, [140,10])
   elif player_2_score > 0:
     points_2 = font.render("Player 2 wins", True, WHITE)
     screen.blit(points_2, [140,10])
-  else:
-    pass
   pygame.display.update()
 
 clock.tick(60)
